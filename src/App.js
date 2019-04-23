@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+const compareNumeric = (a, b) => {
+  return a - b;
+};
+const Numbers = props => {
+  let arr = props.value.split(/\D/).sort(compareNumeric);
+  console.log(arr);
+  return (
+    <div className="numbers">
+      {arr.map((item, index) => (
+        <p key={index}>{item}</p>
+      ))}
+    </div>
+  );
+};
 function App() {
+  const [sendValue, setSendValue] = useState("1,3 3,5,21,9; 11");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>Введите цифры</h1>
+      <input
+        className="get-array"
+        type="text"
+        onChange={event => setSendValue(event.target.value)}
+        value={sendValue}
+      />
+      <h2>Отсортированные цифры</h2>
+      <Numbers value={sendValue} />
     </div>
   );
 }

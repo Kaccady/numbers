@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.get-array {
+  padding-left: 20px;
+  padding-right: 10px;
+  max-width: 500px;
+  margin: 20px;
+  overflow-x: hidden;
+}
+.numbers {
+  display: flex;
+  flex-direction: column;
+}
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
